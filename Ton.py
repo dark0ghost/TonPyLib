@@ -1,10 +1,10 @@
 import aiohttp
 import asyncio
 
+
 from typing import Dict
 
-
-
+from aiohttp_socks import SocksConnector
 
 
 class Ton:
@@ -17,9 +17,15 @@ class Ton:
         print(await d.getAddressInformation(addres=kQD8uRo6OBbQ97jCx2EIuKm8Wmt6Vb15-KsQHFLbKSMiYHa6) #addres this you wallet )
         #{"ok":true,"result":{"state":"active","balance":19869804595}}
 
+        #use proxy
+         await d.proxy_session(proxy_url="socks5://3833844140:w61D1u0v@orbtl.s5.opennetwork.cc:999")
+         # code
+         await d.close()
+
     asyncio.run(n())
 
     """
+
     def __init__(self, session: aiohttp.ClientSession = None) -> None:
         """
 
@@ -143,17 +149,28 @@ class Ton:
         todo : wait api full
         :return:
         """
+
     def create_key_gen(self):
         """
                 todo : wait api full
                 :return:
         """
 
+    async def proxy_session(self, proxy_url: str) -> aiohttp.ClientSession:
+        """
+         proxy_url ="socks5://user:password@127.0.0.1:1080" or "socks5://127.0.0.1:1080"
+        :param proxy_url:
+        :return:
+        """
+        connector = SocksConnector.from_url(proxy_url)
+        self.session = aiohttp.ClientSession(connector=connector)
+        return self.session
 
+    async def close(self) -> bool:
+        """
 
-async def n():
-    async with aiohttp.ClientSession() as session:
-        d = Ton(session=session)
+        :return:
+        """
+        await self.session.close()
+        return True
 
-
-asyncio.run(n())
