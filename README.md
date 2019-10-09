@@ -2,7 +2,7 @@
 #this class use api  https://api.ton.sh/ and  https://toncenter.com/api/test/v1 and will use ton.org api
 #use:
 ``` python
-    import Ton
+    from Ton import Ton
     import asyncio
     
     async def n():
