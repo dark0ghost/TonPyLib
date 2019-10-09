@@ -11,6 +11,11 @@
         print(await d.getAddressInformation(addres=kQD8uRo6OBbQ97jCx2EIuKm8Wmt6Vb15-KsQHFLbKSMiYHa6) #addres this you wallet )
         #{"ok":true,"result":{"state":"active","balance":19869804595}}
         
+        #use proxy
+        await d.proxy_session(proxy_url="socks5://3833844140:w61D1u0v@orbtl.s5.opennetwork.cc:999")
+        # code
+        await d.close()
+        
     asyncio.run(n())
 ```
 
