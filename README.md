@@ -2,6 +2,9 @@
 #this class use api  https://api.ton.sh/ and  https://toncenter.com/api/test/v1 and will use ton.org api
 #use:
 ``` python
+    import Ton
+    import asuncio
+    
     async def n():
       async with aiohttp.ClientSession() as session:
         d = Ton(session=session)
