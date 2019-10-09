@@ -3,7 +3,7 @@
 #use:
 ``` python
     import Ton
-    import asuncio
+    import asyncio
     
     async def n():
       async with aiohttp.ClientSession() as session:
