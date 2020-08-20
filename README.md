@@ -1,6 +1,6 @@
 # TonPyLib
-#this class use api  https://api.ton.sh/ and  https://toncenter.com/api/test/v1 and will use ton.org api
-#use:
+# this class use api  https://api.ton.sh/ and  https://toncenter.com/api/test/v1 and will use ton.org api
+# use:
 ``` python
     from Ton import Ton
     import asyncio
